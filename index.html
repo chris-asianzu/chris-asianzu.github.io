@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chris Asianzu — Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F2340;
+    --blue: #1A5EA8;
+    --ice: #E8F0FB;
+    --teal: #0D7B6E;
+    --amber: #C47D0E;
+    --white: #FFFFFF;
+    --off-white: #F8FAFD;
+    --gray: #4A5568;
+    --light-gray: #EDF2F7;
+    --border: #D1DCF0;
+    --text: #1A202C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(26,94,168,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(13,123,110,0.2) 0%, transparent 50%);
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 4rem; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(26,94,168,0.3);
+    border: 1px solid rgba(100,160,255,0.3);
+    color: #90b8f0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: #90b8f0;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: #a0b8d8;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--blue);
+    color: white;
+    padding: 0.85rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    border: 2px solid var(--blue);
+  }
+  .btn-primary:hover { background: #1a4f8f; border-color: #1a4f8f; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: #a0b8d8;
+    padding: 0.85rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    border: 2px solid rgba(160,184,216,0.3);
+  }
+  .btn-outline:hover { border-color: #a0b8d8; color: white; }
+
+  .hero-photo {
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(26,94,168,0.4), rgba(13,123,110,0.4));
+    border: 3px solid rgba(100,160,255,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .hero-photo-placeholder {
+    text-align: center; color: #90b8f0;
+  }
+  .hero-photo-placeholder span { font-size: 3rem; display: block; }
+  .hero-photo-placeholder p { font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.7; }
+
+  /* hero stats */
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item { }
+  .stat-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: white;
+    display: block;
+  }
+  .stat-label { font-size: 0.8rem; color: #90b8f0; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--gray);
+    max-width: 560px;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--white); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(15,35,64,0.12);
+  }
+  .card-top {
+    padding: 2rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .card-accent {
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  }
+  .card-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+  }
+  .badge-flagship { background: #EBF4FF; color: var(--blue); }
+  .badge-case { background: #E6F7F5; color: var(--teal); }
+  .badge-sql { background: #FDF3E0; color: var(--amber); }
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+  .card-finding {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+  .card-finding strong { color: var(--navy); }
+  .card-bottom { padding: 1.25rem 2rem; }
+  .card-tools {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+  }
+  .tool-tag {
+    font-size: 0.75rem;
+    background: var(--light-gray);
+    color: var(--gray);
+    padding: 0.25rem 0.7rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .card-links { display: flex; gap: 0.75rem; }
+  .card-link {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--blue);
+    display: flex; align-items: center; gap: 0.3rem;
+    transition: color 0.2s;
+  }
+  .card-link:hover { color: var(--navy); }
+  .card-link svg { width: 14px; height: 14px; }
+
+  /* ── LOOM VIDEO ── */
+  #video { background: var(--navy); }
+  #video .section-label { color: #90b8f0; }
+  #video .section-title { color: var(--white); }
+  #video .section-sub { color: #a0b8d8; }
+  .video-container {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    max-width: 800px;
+  }
+  .video-placeholder {
+    text-align: center; color: #a0b8d8;
+  }
+  .video-placeholder .play-btn {
+    width: 72px; height: 72px;
+    background: rgba(26,94,168,0.6);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.8rem;
+  }
+  .video-placeholder p { font-size: 0.9rem; opacity: 0.7; }
+
+  /* ── SQL SECTION ── */
+  #sql { background: var(--off-white); }
+  .sql-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .sql-card {
+    background: var(--navy);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .sql-card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .sql-card-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #90b8f0;
+  }
+  .sql-card-tag {
+    font-size: 0.7rem;
+    background: rgba(26,94,168,0.3);
+    color: #90b8f0;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+  }
+  .sql-code {
+    padding: 1.25rem 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: #c8d8f0;
+    overflow-x: auto;
+  }
+  .kw { color: #7dd3fc; font-weight: 600; }
+  .fn { color: #86efac; }
+  .cm { color: #64748b; font-style: italic; }
+  .str { color: #fca5a5; }
+  .sql-cta {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--white); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+  }
+  .skill-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .skill-name {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .skill-items {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--navy);
+    text-align: center;
+  }
+  #contact .section-label { color: #90b8f0; }
+  #contact .section-title { color: white; }
+  #contact .section-sub { color: #a0b8d8; margin: 0 auto 3rem; }
+  .contact-links {
+    display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #c8d8f0;
+    text-decoration: none;
+    padding: 0.9rem 1.6rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .contact-link:hover {
+    background: rgba(26,94,168,0.3);
+    border-color: rgba(100,160,255,0.4);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #081828;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.82rem;
+    color: #4a6080;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-tag { animation-delay: 0.1s; }
+  .hero h1  { animation-delay: 0.2s; }
+  .hero-sub { animation-delay: 0.3s; }
+  .hero-btns{ animation-delay: 0.4s; }
+  .hero-stats{ animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-photo { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .sql-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Chris Asianzu</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#video">Walkthrough</a></li>
+    <li><a href="#sql">SQL</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">Data Analyst — Open to Work</div>
+      <h1>I turn raw data into<br><em>revenue decisions.</em></h1>
+      <p class="hero-sub">
+        Specializing in e-commerce analytics, customer retention, and 
+        marketing performance. Python · PostgreSQL · Power BI · SQL.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="https://github.com/chris-asianzu" target="_blank" class="btn-outline">GitHub Profile →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-value">98K+</span>
+          <span class="stat-label">Orders Analyzed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">4</span>
+          <span class="stat-label">Live Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">25</span>
+          <span class="stat-label">SQL Queries</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <!-- Replace src with your actual photo path -->
+      <!-- <img src="photo.jpg" alt="Chris Asianzu"> -->
+      <div class="hero-photo-placeholder">
+        <span>👤</span>
+        <p>Add your<br>photo here</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Projects Built as Consulting Work</h2>
+    <p class="section-sub">Each project answers a real business question with a full pipeline — from raw data to executive recommendation.</p>
+
+    <div class="projects-grid">
+
+      <!-- Flagship -->
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-accent" style="background: linear-gradient(90deg, #1A5EA8, #0D7B6E);"></div>
+          <div class="card-badge badge-flagship">Flagship Project</div>
+          <h3 class="card-title">E-commerce Revenue Intelligence System</h3>
+          <p class="card-finding">
+            Analyzed 98,666 orders across 3 years. Found <strong>87.7% churn rate</strong> 
+            with R$1.38M recoverable revenue through retention email sequences. 
+            Affiliate channel delivers <strong>4x ROI</strong> — recommended 25% budget reallocation from Social.
+          </p>
+        </div>
+        <div class="card-bottom">
+          <div class="card-tools">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">PostgreSQL</span>
+            <span class="tool-tag">Power BI</span>
+            <span class="tool-tag">pandas</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/chris-asianzu/ecommerce-revenue-intelligence" target="_blank" class="card-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub Repo
+            </a>
+            <a href="https://github.com/chris-asianzu/ecommerce-revenue-intelligence/blob/main/report/Executive_Report_Olist.pdf" target="_blank" class="card-link">
+              📄 Executive Report
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Retail -->
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-accent" style="background: linear-gradient(90deg, #0D7B6E, #0D7B6E99);"></div>
+          <div class="card-badge badge-case">Case Study</div>
+          <h3 class="card-title">Retail Inventory & Sales Optimization</h3>
+          <p class="card-finding">
+            Analyzed 1,000 supermarket transactions across 3 branches. 
+            Branch C leads with <strong>$110,569 revenue</strong> and 5.58x inventory turnover. 
+            Modeled reorder thresholds to prevent <strong>9% revenue loss</strong> from stockouts in top categories.
+          </p>
+        </div>
+        <div class="card-bottom">
+          <div class="card-tools">
+            <span class="tool-tag">MySQL</span>
+            <span class="tool-tag">Window Functions</span>
+            <span class="tool-tag">Inventory Modeling</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/chris-asianzu/retail-store-inventory-optimization" target="_blank" class="card-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub Repo
+            </a>
+            <a href="https://github.com/chris-asianzu/retail-store-inventory-optimization/blob/main/report/Retail_Inventory_CaseStudy.pdf" target="_blank" class="card-link">
+              📄 Case Study
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marketing -->
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-accent" style="background: linear-gradient(90deg, #C47D0E, #C47D0E99);"></div>
+          <div class="card-badge badge-case">Case Study</div>
+          <h3 class="card-title">Bank Marketing Campaign Performance</h3>
+          <p class="card-finding">
+            Analyzed 45,211 customer contacts. Overall conversion rate 11.7% — but 
+            previous converters re-convert at <strong>64.7%</strong>. 
+            Cellular contact outperforms telephone by <strong>2.8x</strong>. 
+            Recommended targeting shift estimated to improve ROI by 20-28%.
+          </p>
+        </div>
+        <div class="card-bottom">
+          <div class="card-tools">
+            <span class="tool-tag">Power BI</span>
+            <span class="tool-tag">DAX</span>
+            <span class="tool-tag">Conversion Analysis</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/chris-asianzu/marketing-campaign-analysis" target="_blank" class="card-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub Repo
+            </a>
+            <a href="https://github.com/chris-asianzu/marketing-campaign-analysis/blob/main/report/Marketing_Campaign_CaseStudy.pdf" target="_blank" class="card-link">
+              📄 Case Study
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SQL -->
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-accent" style="background: linear-gradient(90deg, #C47D0E, #1A5EA8);"></div>
+          <div class="card-badge badge-sql">SQL Repository</div>
+          <h3 class="card-title">SQL Mastery Repository</h3>
+          <p class="card-finding">
+            25 business-focused queries across cohort analysis, revenue segmentation, 
+            customer CLV, funnel analysis, and advanced patterns. Each query includes 
+            <strong>business context</strong> explaining why a company needs it and 
+            what the output tells a decision maker.
+          </p>
+        </div>
+        <div class="card-bottom">
+          <div class="card-tools">
+            <span class="tool-tag">PostgreSQL</span>
+            <span class="tool-tag">Window Functions</span>
+            <span class="tool-tag">CTEs</span>
+            <span class="tool-tag">RFM Scoring</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/chris-asianzu/sql-mastery-repository" target="_blank" class="card-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              View All 25 Queries
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="container">
+    <div class="section-label">Project Walkthrough</div>
+    <h2 class="section-title">Watch the Dashboard in Action</h2>
+    <p class="section-sub">A 4-minute walkthrough of the flagship project — business problem, key findings, and strategic recommendations.</p>
+    <div class="video-container">
+      <!-- Replace this div with your Loom embed when ready -->
+      <!-- <iframe src="https://www.loom.com/embed/YOUR-LOOM-ID" frameborder="0" allowfullscreen style="width:100%;height:100%;"></iframe> -->
+      <div class="video-placeholder">
+        <div class="play-btn">▶</div>
+        <p>Loom walkthrough coming soon.<br>Replace this with your embed link.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SQL -->
+<section id="sql">
+  <div class="container">
+    <div class="section-label">SQL Mastery</div>
+    <h2 class="section-title">Business-First SQL</h2>
+    <p class="section-sub">Every query answers a real business question. Here are three examples from the repository.</p>
+
+    <div class="sql-grid">
+      <div class="sql-card">
+        <div class="sql-card-header">
+          <span class="sql-card-title">Pareto Revenue Analysis</span>
+          <span class="sql-card-tag">Revenue</span>
+        </div>
+        <div class="sql-code"><span class="cm">-- Which products drive 80% of revenue?</span>
+<span class="kw">WITH</span> cumulative <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> product_id,
+    <span class="fn">SUM</span>(revenue) <span class="kw">AS</span> total,
+    <span class="fn">SUM</span>(<span class="fn">SUM</span>(revenue))
+      <span class="kw">OVER</span> (<span class="kw">ORDER BY</span> <span class="fn">SUM</span>(revenue) <span class="kw">DESC</span>)
+      <span class="kw">AS</span> cumulative_rev
+  <span class="kw">FROM</span> orders
+  <span class="kw">GROUP BY</span> product_id
+)
+<span class="kw">SELECT</span> product_id,
+  <span class="fn">ROUND</span>(cumulative_rev / grand_total * 100, 2)
+    <span class="kw">AS</span> cumulative_pct
+<span class="kw">FROM</span> cumulative
+<span class="kw">WHERE</span> cumulative_rev / grand_total &lt;= 0.80;</div>
+      </div>
+
+      <div class="sql-card">
+        <div class="sql-card-header">
+          <span class="sql-card-title">RFM Customer Scoring</span>
+          <span class="sql-card-tag">Customers</span>
+        </div>
+        <div class="sql-code"><span class="cm">-- Score every customer on R, F, M</span>
+<span class="kw">WITH</span> rfm_scored <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> customer_id,
+    <span class="fn">NTILE</span>(5) <span class="kw">OVER</span>
+      (<span class="kw">ORDER BY</span> recency_days <span class="kw">ASC</span>)
+      <span class="kw">AS</span> r_score,
+    <span class="fn">NTILE</span>(5) <span class="kw">OVER</span>
+      (<span class="kw">ORDER BY</span> frequency <span class="kw">DESC</span>)
+      <span class="kw">AS</span> f_score,
+    <span class="fn">NTILE</span>(5) <span class="kw">OVER</span>
+      (<span class="kw">ORDER BY</span> monetary <span class="kw">DESC</span>)
+      <span class="kw">AS</span> m_score
+  <span class="kw">FROM</span> rfm_base
+)
+<span class="kw">SELECT</span> *, r_score + f_score + m_score
+  <span class="kw">AS</span> total_rfm_score
+<span class="kw">FROM</span> rfm_scored
+<span class="kw">ORDER BY</span> total_rfm_score <span class="kw">DESC</span>;</div>
+      </div>
+
+      <div class="sql-card">
+        <div class="sql-card-header">
+          <span class="sql-card-title">MoM Revenue Growth</span>
+          <span class="sql-card-tag">Revenue</span>
+        </div>
+        <div class="sql-code"><span class="cm">-- Month-over-month growth with LAG</span>
+<span class="kw">SELECT</span>
+  <span class="fn">DATE_TRUNC</span>(<span class="str">'month'</span>, order_date)
+    <span class="kw">AS</span> order_month,
+  <span class="fn">SUM</span>(order_value) <span class="kw">AS</span> revenue,
+  <span class="fn">LAG</span>(<span class="fn">SUM</span>(order_value))
+    <span class="kw">OVER</span> (<span class="kw">ORDER BY</span>
+      <span class="fn">DATE_TRUNC</span>(<span class="str">'month'</span>, order_date))
+    <span class="kw">AS</span> prev_month,
+  <span class="fn">ROUND</span>((revenue - prev_month)
+    / prev_month * 100, 2)
+    <span class="kw">AS</span> mom_growth_pct
+<span class="kw">FROM</span> orders
+<span class="kw">GROUP BY</span> order_month
+<span class="kw">ORDER BY</span> order_month;</div>
+      </div>
+
+      <div class="sql-card" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0F2340,#1A3A5C);min-height:200px;">
+        <div style="text-align:center;padding:2rem;">
+          <div style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:white;margin-bottom:0.75rem;">22 More Queries</div>
+          <p style="color:#a0b8d8;font-size:0.85rem;margin-bottom:1.5rem;">Cohort retention, funnel analysis,<br>CLV, churn, advanced CTEs and more.</p>
+          <a href="https://github.com/chris-asianzu/sql-mastery-repository" target="_blank" class="btn-primary" style="font-size:0.85rem;padding:0.7rem 1.4rem;">View Full Repository →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Technical Skills</div>
+    <h2 class="section-title">Tools & Techniques</h2>
+    <p class="section-sub">End-to-end analytics capability from raw data to executive presentation.</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon" style="background:#EBF4FF;">🐍</div>
+        <div class="skill-name">Python</div>
+        <div class="skill-items">pandas · numpy · matplotlib · seaborn · SQLAlchemy · Jupyter</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:#E6F0FF;">🗄️</div>
+        <div class="skill-name">SQL</div>
+        <div class="skill-items">PostgreSQL · MySQL · Window Functions · CTEs · Query Optimization</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:#FDF3E0;">📊</div>
+        <div class="skill-name">Business Intelligence</div>
+        <div class="skill-items">Power BI · DAX · Tableau · Dashboard Design · KPI Reporting</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon" style="background:#E6F7F5;">📈</div>
+        <div class="skill-name">Analytics</div>
+        <div class="skill-items">Cohort Analysis · RFM Scoring · Churn Modeling · Funnel Analysis · CLV</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Open to Analyst Roles</h2>
+    <p class="section-sub">Available for full-time data analyst positions in e-commerce, marketing, fintech, or retail. Based in Kampala — open to remote.</p>
+    <div class="contact-links">
+      <a href="mailto:your-email@gmail.com" class="contact-link">
+        ✉️ your-email@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank" class="contact-link">
+        💼 LinkedIn
+      </a>
+      <a href="https://github.com/chris-asianzu" target="_blank" class="contact-link">
+        🐙 GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built by Chris Asianzu · Data Analyst · 2026
+</footer>
+
+</body>
+</html>
