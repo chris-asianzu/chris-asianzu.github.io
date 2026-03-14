@@ -224,7 +224,7 @@ footer{background:var(--navy);padding:5rem 5% 2rem;}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;}.hero-card{display:none;}
+  .hero-inner{grid-template-columns:1fr;}.hero-card{width:100%;max-width:400px;margin:2.5rem auto 0;border-radius:16px;}
   .alt-inner{grid-template-columns:1fr;gap:3rem;}.alt-inner.rev{direction:ltr;}
   .stats-inner{grid-template-columns:repeat(2,1fr);}
   .ml-card-top{grid-template-columns:1fr;}
@@ -450,13 +450,13 @@ footer{background:var(--navy);padding:5rem 5% 2rem;}
         <div class="maracha-content">
           <div class="maracha-badge">Live Deployment · Muni Labs · Uganda</div>
           <h3 class="maracha-title">Digitizing patient records to improve healthcare delivery across Uganda.</h3>
-          <p class="maracha-desc">The Muni Labs team — led by Asiku Nasibu and supported by Yokoko Christine, Drileonzi Caeser, Chris Asianzu and the wider team — demonstrated an advanced health records digitization system at St. Joseph's Hospital Maracha on September 12, 2024.</p>
-          
+          <p class="maracha-desc">The Muni Labs team — led by Asiku Nasibu and supported by Yokoko Christine, Drileonzi Caeser, and the wider team — demonstrated an advanced health records digitization system at St. Joseph's Hospital Maracha on September 12, 2024.</p>
+          <p class="maracha-desc">The system replaces paper-based patient records with a centralized digital database, accessible across workstations via the hospital's Local Area Network. It enables real-time record retrieval, reduces documentation errors, and makes patient history instantly available at any workstation in the facility.</p>
           <ul class="check-list">
-            <li>Digitized and analyzed patient record management replacing paper systems</li>
+            <li>Digitized patient record management replacing paper systems</li>
             <li>Multi-user LAN access — all workstations connected to central server</li>
             <li>Identified infrastructure requirements for full hospital-wide deployment</li>
-        
+            <li>Provided hardware upgrade recommendations for production rollout</li>
           </ul>
         </div>
       </div>
