@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare & NGO Work — Chris Asianzu Benjamin</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1628;--blue:#1565C0;--blue2:#1E88E5;--sky:#E3F2FD;
+  --teal:#00897B;--teal2:#E0F2F1;--amber:#F57F17;--white:#fff;--off:#F8FAFD;
+  --gray:#546E7A;--mid:#78909C;--border:#E0E7EF;--body:#37474F;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--body);line-height:1.7;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:#f0f4f8;}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:3px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:70px;display:flex;align-items:center;padding:0 5%;justify-content:space-between;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);text-decoration:none;font-weight:700;}
+.nav-logo span{color:var(--teal);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
+.nav-links a{text-decoration:none;color:var(--gray);font-size:0.88rem;font-weight:600;transition:color 0.2s;}
+.nav-links a:hover{color:var(--teal);}
+.nav-active{color:var(--teal)!important;border-bottom:2px solid var(--teal);padding-bottom:2px;}
+.nav-cta{background:var(--teal)!important;color:#fff!important;padding:0.55rem 1.4rem;border-radius:6px;}
+.nav-cta:hover{background:#00695c!important;}
+.nav-dl{color:var(--teal)!important;border:1.5px solid var(--teal);padding:0.45rem 1.1rem;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:all 0.2s;}
+.nav-dl:hover{background:var(--teal2);}
+.nav-dl{background:transparent!important;color:var(--teal)!important;border:1.5px solid var(--teal);padding:0.45rem 1.1rem;border-radius:6px;transition:all 0.2s!important;}
+.nav-dl:hover{background:var(--teal2)!important;}
+
+/* HERO */
+.hero{min-height:75vh;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(160deg,#B2DFDB 0%,#E0F2F1 45%,#ffffff 100%);position:relative;}
+.hero-inner{max-width:1200px;margin:0 auto;padding:8rem 5% 0;width:100%;display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:flex-end;}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,137,123,0.1);border:1px solid rgba(0,137,123,0.3);color:var(--teal);font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:2rem;margin-bottom:1.5rem;}
+.hero-tag-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4rem);color:var(--navy);line-height:1.1;margin-bottom:1.25rem;letter-spacing:-0.02em;}
+.hero h1 em{font-style:italic;color:var(--teal);}
+.hero-sub{font-size:1.05rem;color:var(--gray);max-width:520px;margin-bottom:2.5rem;line-height:1.8;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem;}
+.btn-primary{background:var(--teal);color:#fff;padding:0.9rem 2.2rem;border-radius:7px;text-decoration:none;font-weight:700;font-size:0.9rem;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;border:2px solid var(--teal);}
+.btn-primary:hover{background:#00695c;border-color:#00695c;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,137,123,0.35);}
+.btn-outline{background:#fff;color:var(--teal);padding:0.9rem 2.2rem;border-radius:7px;text-decoration:none;font-weight:600;font-size:0.9rem;border:2px solid var(--teal);transition:all 0.2s;}
+.btn-outline:hover{background:var(--teal2);transform:translateY(-2px);}
+.hero-card{background:#fff;border-radius:20px 20px 0 0;overflow:hidden;box-shadow:0 -8px 40px rgba(0,137,123,0.12);border:1px solid rgba(0,137,123,0.12);border-bottom:none;}
+.hero-card-img{width:100%;aspect-ratio:4/3;background:linear-gradient(160deg,#B2DFDB,#80CBC4);position:relative;overflow:hidden;}
+/* IMAGE PLACEHOLDER A — Hospital/NGO work photo */
+/* Add: <img src="maracha-hospital.jpg" alt="St. Joseph's Hospital Maracha" style="width:100%;height:100%;object-fit:cover;"> */
+/* Generate: healthcare team with laptops in a Ugandan hospital corridor, natural light, realistic, 800x600px */
+.hero-card-img-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--teal);font-size:0.8rem;text-align:center;padding:2rem;gap:0.5rem;}
+.hero-card-img-ph span{font-size:3rem;}
+.hero-card-info{padding:1.25rem 1.5rem;background:#fff;border-top:1px solid var(--border);}
+.hero-card-name{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);font-weight:700;margin-bottom:0.2rem;}
+.hero-card-sub{font-size:0.78rem;color:var(--teal);font-weight:600;}
+
+/* SHARED */
+section{padding:7rem 5%;}
+.container{max-width:1200px;margin:0 auto;}
+.eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem;}
+.eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--teal);}
+.eyebrow-center{justify-content:center;}
+.eyebrow-center::before{content:'';display:block;width:28px;height:1px;background:var(--teal);}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.6rem);color:var(--navy);margin-bottom:1rem;line-height:1.2;}
+.sec-sub{font-size:1rem;color:var(--mid);max-width:560px;line-height:1.8;}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin:1.25rem 0;}
+.check-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.92rem;color:var(--gray);}
+.check-list li::before{content:'✓';display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:var(--teal2);color:var(--teal);border-radius:50%;font-size:0.7rem;font-weight:900;flex-shrink:0;margin-top:2px;}
+
+/* ICON STRIP */
+.icon-strip{background:var(--white);border-bottom:1px solid var(--border);padding:2.5rem 5%;}
+.icon-strip-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+.icon-item{display:flex;align-items:center;gap:0.75rem;}
+.icon-circle{width:44px;height:44px;border-radius:50%;background:var(--teal2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.icon-label{font-size:0.85rem;font-weight:700;color:var(--navy);}
+.icon-sub{font-size:0.75rem;color:var(--mid);}
+.strip-div{width:1px;height:40px;background:var(--border);}
+
+/* INTRO */
+.intro{background:var(--off);padding:6rem 5%;text-align:center;}
+.intro p{font-size:1.05rem;color:var(--gray);line-height:1.9;max-width:700px;margin:0 auto;}
+
+/* STATS BAR */
+.stats-bar{background:var(--navy);padding:5rem 5%;}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;}
+.sv{font-family:'Playfair Display',serif;font-size:3rem;color:#fff;display:block;line-height:1;margin-bottom:0.5rem;}
+.sv span{color:#80CBC4;}
+.sl{font-size:0.82rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;}
+.stat-div{width:1px;background:rgba(255,255,255,0.08);align-self:stretch;}
+
+/* ALT SECTIONS */
+.alt{padding:7rem 5%;}
+.alt:nth-child(even){background:var(--off);}
+.alt-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.alt-inner.rev{direction:rtl;}
+.alt-inner.rev>*{direction:ltr;}
+.alt-img{border-radius:16px;overflow:hidden;aspect-ratio:4/3;position:relative;}
+.alt-img-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-size:0.8rem;text-align:center;padding:2rem;gap:0.5rem;font-style:italic;}
+.alt-img-ph span{font-size:2.5rem;}
+.alt-text p{font-size:0.95rem;color:var(--gray);line-height:1.9;margin-bottom:1.25rem;}
+
+/* PROJECT CARDS — ML PROJECT */
+.ml-card{background:var(--navy);border-radius:16px;overflow:hidden;margin-top:3.5rem;}
+.ml-card-top{padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.ml-badge{display:inline-block;background:rgba(128,203,196,0.2);border:1px solid rgba(128,203,196,0.3);color:#80CBC4;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:2rem;margin-bottom:1rem;}
+.ml-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;line-height:1.2;margin-bottom:1rem;}
+.ml-title em{font-style:italic;color:#80CBC4;}
+.ml-desc{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:1.5rem;}
+.ml-nda{background:rgba(245,127,23,0.15);border:1px solid rgba(245,127,23,0.3);border-radius:8px;padding:0.9rem 1.25rem;font-size:0.82rem;color:rgba(245,127,23,0.9);display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:1.5rem;}
+.ml-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.mlm{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:1.25rem;}
+.mlmv{font-family:'Playfair Display',serif;font-size:1.8rem;color:#80CBC4;display:block;line-height:1;margin-bottom:0.3rem;}
+.mlml{font-size:0.75rem;color:rgba(255,255,255,0.4);}
+.ml-tech{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.5rem;}
+.mlt{font-size:0.72rem;background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.55);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;border:1px solid rgba(255,255,255,0.1);}
+.ml-card-bottom{background:rgba(255,255,255,0.03);border-top:1px solid rgba(255,255,255,0.07);padding:2rem 3rem;}
+.ml-pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;}
+.ml-step{text-align:center;position:relative;}
+.ml-step:not(:last-child)::after{content:'→';position:absolute;right:-0.5rem;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.2);font-size:1.2rem;}
+.ml-step-icon{font-size:1.5rem;display:block;margin-bottom:0.5rem;}
+.ml-step-name{font-size:0.72rem;color:rgba(255,255,255,0.5);font-weight:600;}
+.ml-step-detail{font-size:0.65rem;color:rgba(255,255,255,0.25);margin-top:0.2rem;}
+
+/* DATA GRID SOURCES */
+.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem;}
+.data-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:transform 0.2s,box-shadow 0.2s;}
+.data-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(10,22,40,0.08);}
+.data-icon{font-size:1.75rem;margin-bottom:0.75rem;display:block;}
+.data-name{font-weight:700;color:var(--navy);font-size:0.9rem;margin-bottom:0.4rem;}
+.data-desc{font-size:0.8rem;color:var(--mid);line-height:1.6;}
+.data-tag{display:inline-block;margin-top:0.75rem;font-size:0.68rem;background:var(--teal2);color:var(--teal);padding:0.2rem 0.6rem;border-radius:3px;font-weight:700;}
+
+/* MARACHA CARD */
+.maracha-card{background:var(--off);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:3.5rem;}
+.maracha-top{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.maracha-img{aspect-ratio:4/3;position:relative;overflow:hidden;}
+/* IMAGE PLACEHOLDER B — Hospital building / team photo */
+/* Generate: exterior of a rural Ugandan hospital, clean daylight, realistic, 800x600px */
+.maracha-img-ph{width:100%;height:100%;background:linear-gradient(135deg,#004D40,#00695c);display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:0.8rem;text-align:center;padding:2rem;gap:0.5rem;font-style:italic;}
+.maracha-img-ph span{font-size:2.5rem;}
+.maracha-img img{width:100%;height:100%;object-fit:cover;}
+.maracha-content{padding:3rem;}
+.maracha-badge{display:inline-block;background:var(--teal2);color:var(--teal);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:2rem;margin-bottom:1rem;}
+.maracha-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy);line-height:1.25;margin-bottom:1rem;}
+.maracha-desc{font-size:0.9rem;color:var(--gray);line-height:1.9;margin-bottom:1.25rem;}
+.maracha-bottom{padding:2rem 3rem;border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.mb-item{text-align:center;}
+.mb-icon{font-size:1.5rem;display:block;margin-bottom:0.4rem;}
+.mb-label{font-size:0.78rem;font-weight:700;color:var(--navy);margin-bottom:0.2rem;}
+.mb-detail{font-size:0.72rem;color:var(--mid);}
+
+/* TEACHING */
+.teaching-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.teaching-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:2rem;transition:transform 0.2s,box-shadow 0.2s;}
+.teaching-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(10,22,40,0.08);}
+.tc-number{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--teal);line-height:1;margin-bottom:0.5rem;}
+.tc-title{font-weight:700;color:var(--navy);font-size:0.95rem;margin-bottom:0.5rem;}
+.tc-desc{font-size:0.82rem;color:var(--mid);line-height:1.7;}
+.cohort-bar{margin-top:3rem;background:var(--off);border-radius:12px;padding:2rem 2.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;border:1px solid var(--border);}
+.cohort-dots{display:flex;gap:0.5rem;}
+.cohort-dot{width:36px;height:36px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.72rem;font-weight:700;}
+.cohort-dot.inactive{background:var(--teal2);color:var(--teal);}
+.cohort-text{font-size:0.88rem;color:var(--gray);flex:1;}
+.cohort-text strong{color:var(--navy);}
+
+/* MUNI LABS */
+.muni-section{background:var(--navy);padding:7rem 5%;}
+.muni-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.muni-text .eyebrow{color:#80CBC4;}
+.muni-text .eyebrow::after{background:#80CBC4;}
+.muni-text .sec-title{color:#fff;}
+.muni-text p{font-size:0.95rem;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:1.5rem;}
+.muni-img{border-radius:16px;overflow:hidden;aspect-ratio:4/3;}
+/* IMAGE PLACEHOLDER C — Muni Labs / GSA classroom */
+/* Generate: students learning data analytics on laptops in a Ugandan classroom or online setting, warm light, 800x600px */
+.muni-img-ph{width:100%;height:100%;background:linear-gradient(135deg,#0d47a1,#00695c);display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.25);font-size:0.8rem;text-align:center;padding:2rem;gap:0.5rem;font-style:italic;}
+.muni-img-ph span{font-size:2.5rem;}
+.muni-img img{width:100%;height:100%;object-fit:cover;}
+.muni-values{display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem;}
+.mv{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;}
+.mv-icon{font-size:1.3rem;flex-shrink:0;}
+.mv-title{font-weight:700;color:#fff;font-size:0.88rem;margin-bottom:0.2rem;}
+.mv-desc{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.6;}
+
+/* CTA BANNER */
+.cta-banner{background:var(--teal);padding:6rem 5%;text-align:center;position:relative;overflow:hidden;}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(255,255,255,0.08),transparent 60%);}
+.cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto;}
+.cta-banner h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);color:#fff;margin-bottom:1rem;line-height:1.2;}
+.cta-banner p{font-size:1.05rem;color:rgba(255,255,255,0.75);margin-bottom:2.5rem;line-height:1.8;}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:#fff;color:var(--teal);padding:0.9rem 2.2rem;border-radius:7px;text-decoration:none;font-weight:700;font-size:0.9rem;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;}
+.btn-white:hover{background:var(--teal2);transform:translateY(-2px);}
+.btn-outline-white{background:transparent;color:#fff;padding:0.9rem 2.2rem;border-radius:7px;text-decoration:none;font-weight:600;font-size:0.9rem;border:2px solid rgba(255,255,255,0.4);transition:all 0.2s;}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,0.1);}
+
+/* FOOTER */
+footer{background:var(--navy);padding:5rem 5% 2rem;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;padding-bottom:4rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:0.75rem;}
+.footer-brand-name span{color:#80CBC4;}
+.footer-brand-desc{font-size:0.85rem;color:rgba(255,255,255,0.4);line-height:1.8;margin-bottom:1.5rem;}
+.footer-social{display:flex;gap:0.75rem;}
+.fsoc{width:36px;height:36px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,0.5);font-size:0.85rem;transition:all 0.2s;}
+.fsoc:hover{background:rgba(0,137,123,0.3);border-color:rgba(0,137,123,0.5);color:#fff;}
+.footer-col h4{font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.25rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+.footer-col a{text-decoration:none;color:rgba(255,255,255,0.5);font-size:0.85rem;transition:color 0.2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.2);}
+.footer-copy a{color:rgba(255,255,255,0.35);text-decoration:none;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.hero-tag{animation:fadeUp 0.5s 0.1s both;}
+.hero h1{animation:fadeUp 0.5s 0.2s both;}
+.hero-sub{animation:fadeUp 0.5s 0.3s both;}
+.hero-actions{animation:fadeUp 0.5s 0.4s both;}
+.hero-card{animation:fadeUp 0.5s 0.3s both;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;}.hero-card{display:none;}
+  .alt-inner{grid-template-columns:1fr;gap:3rem;}.alt-inner.rev{direction:ltr;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .ml-card-top{grid-template-columns:1fr;}
+  .ml-pipeline{grid-template-columns:repeat(3,1fr);}
+  .maracha-top{grid-template-columns:1fr;}
+  .teaching-grid{grid-template-columns:1fr 1fr;}
+  .muni-inner{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .data-grid{grid-template-columns:1fr 1fr;}
+  .maracha-bottom{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  nav{padding:0 1.25rem;}.nav-links li:not(:last-child){display:none;}
+  section,.alt,.muni-section,.intro,.cta-banner,footer{padding-left:1.25rem;padding-right:1.25rem;}
+  .teaching-grid{grid-template-columns:1fr;}
+  .data-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .ml-pipeline{grid-template-columns:repeat(2,1fr);}
+  .icon-strip-inner{justify-content:center;}.strip-div{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Chris <span>Asianzu</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#projects">Data Portfolio</a></li>
+    <li><a href="index.html#certs">Credentials</a></li>
+    <li><a href="#ml">ML Project</a></li>
+    <li><a href="#maracha">Hospital Work</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="Chris_Asianzu_Benjamin_Healthcare_CV.pdf" download class="nav-cta">📄 Download CV</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><span class="hero-tag-dot"></span>Healthcare &amp; NGO Work</div>
+      <h1>Data analytics applied<br>where it <em>matters most.</em></h1>
+      <p class="hero-sub">From machine learning disease outbreak prediction serving 45 districts across East Africa, to digitizing patient records at St. Joseph's Hospital Maracha, to training five cohorts of data analysts in Uganda — this is where the numbers meet real lives.</p>
+      <div class="hero-actions">
+        <a href="#ml" class="btn-primary">See ML Project →</a>
+        <a href="index.html" class="btn-outline">← Back to Main Portfolio</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-img">
+        <img src="maracha-hospital.jpg" alt="Healthcare team at Maracha Hospital" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="hero-card-info">
+        <div class="hero-card-name">Healthcare &amp; NGO Portfolio</div>
+        <div class="hero-card-sub">Muni Labs · East Africa · 2022–Present</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ICON STRIP -->
+<div class="icon-strip">
+  <div class="icon-strip-inner">
+    <div class="icon-item">
+      <div class="icon-circle">🤖</div>
+      <div><div class="icon-label">Machine Learning</div><div class="icon-sub">Random Forest · 84% accuracy</div></div>
+    </div>
+    <div class="strip-div"></div>
+    <div class="icon-item">
+      <div class="icon-circle">🏥</div>
+      <div><div class="icon-label">Health Records System</div><div class="icon-sub">Live deployment · Maracha Hospital</div></div>
+    </div>
+    <div class="strip-div"></div>
+    <div class="icon-item">
+      <div class="icon-circle">🎓</div>
+      <div><div class="icon-label">Data Analytics Teaching</div><div class="icon-sub">5 cohorts · Uganda</div></div>
+    </div>
+    <div class="strip-div"></div>
+    <div class="icon-item">
+      <div class="icon-circle">🌍</div>
+      <div><div class="icon-label">East Africa Impact</div><div class="icon-sub">45 districts · 180K observations</div></div>
+    </div>
+    <div class="strip-div"></div>
+    <div class="icon-item">
+      <div class="icon-circle">🔒</div>
+      <div><div class="icon-label">NDA Client Work</div><div class="icon-sub">Paid · Commissioned · Real</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <div class="eyebrow eyebrow-center">Impact</div>
+    <h2 class="sec-title" style="text-align:center;margin-bottom:1.5rem;">The same analytical thinking that finds churn in e-commerce<br>can find the next outbreak before it happens.</h2>
+    <p>Every project on this page involved real clients, real decisions, and real consequences. The machine learning model I built could give health workers a two-week head start on a malaria outbreak. The health records system I demonstrated at Maracha Hospital is designed to replace paper records that get lost, damaged, or simply never read. The students I've trained are now applying data analysis in Uganda's agriculture, health, and education sectors.</p>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div style="text-align:center;"><span class="sv">84<span>%</span></span><span class="sl">ML Model Accuracy</span></div>
+    <div class="stat-div"></div>
+    <div style="text-align:center;"><span class="sv">180<span>K</span></span><span class="sl">Observations Modeled</span></div>
+    <div class="stat-div"></div>
+    <div style="text-align:center;"><span class="sv">45</span><span class="sl">Districts Covered</span></div>
+    <div class="stat-div"></div>
+    <div style="text-align:center;"><span class="sv">5<span>×</span></span><span class="sl">Bootcamp Cohorts Taught</span></div>
+  </div>
+</div>
+
+<!-- ML PROJECT -->
+<section class="alt" id="ml">
+  <div class="container">
+    <div class="eyebrow">Machine Learning</div>
+    <h2 class="sec-title">Disease Outbreak Risk Prediction System</h2>
+    <p class="sec-sub">Paid commission for a regional public health NGO in East Africa. Client identity withheld under signed NDA.</p>
+    <div class="ml-card">
+      <div class="ml-card-top">
+        <div>
+          <div class="ml-badge">🔒 NDA Client · Paid Commission · 8 Weeks</div>
+          <h3 class="ml-title">Predicting malaria and cholera outbreaks <em>before they escalate.</em></h3>
+          <p class="ml-desc">The organization monitored infectious disease reports across 45 districts. Data arrived weekly from hospitals and field teams. Leadership had no early warning signal — response teams were always deploying after case numbers had already surged. I built a predictive system that flags high-risk districts up to 30 days before outbreaks escalate.</p>
+          <div class="ml-nda">
+            🔒 <span>Client identity is withheld under a signed NDA. The methodology, data scope, and results described here are accurate and verifiable. This was paid, commissioned work delivered to a real public health organization.</span>
+          </div>
+          <div class="ml-tech">
+            <span class="mlt">Python</span><span class="mlt">pandas</span><span class="mlt">scikit-learn</span>
+            <span class="mlt">Random Forest</span><span class="mlt">SQL</span><span class="mlt">Power BI</span>
+            <span class="mlt">NASA Climate API</span><span class="mlt">World Bank Data</span>
+          </div>
+        </div>
+        <div>
+          <div class="ml-metrics">
+            <div class="mlm"><span class="mlmv">84%</span><span class="mlml">Model Accuracy</span></div>
+            <div class="mlm"><span class="mlmv">0.89</span><span class="mlml">ROC-AUC Score</span></div>
+            <div class="mlm"><span class="mlmv">0.81</span><span class="mlml">Recall Score</span></div>
+            <div class="mlm"><span class="mlmv">28%</span><span class="mlml">Estimated Case Reduction</span></div>
+            <div class="mlm"><span class="mlmv">180K</span><span class="mlml">Observations</span></div>
+            <div class="mlm"><span class="mlmv">7 yrs</span><span class="mlml">Historical Data</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="ml-card-bottom">
+        <div class="ml-pipeline">
+          <div class="ml-step">
+            <span class="ml-step-icon">📥</span>
+            <div class="ml-step-name">Data Integration</div>
+            <div class="ml-step-detail">Disease · Climate · Demographics</div>
+          </div>
+          <div class="ml-step">
+            <span class="ml-step-icon">🔧</span>
+            <div class="ml-step-name">Engineering</div>
+            <div class="ml-step-detail">Lag vars · Interpolation · Risk indicators</div>
+          </div>
+          <div class="ml-step">
+            <span class="ml-step-icon">🤖</span>
+            <div class="ml-step-name">Random Forest</div>
+            <div class="ml-step-detail">84% accuracy · 0.89 AUC</div>
+          </div>
+          <div class="ml-step">
+            <span class="ml-step-icon">📊</span>
+            <div class="ml-step-name">Power BI Dashboard</div>
+            <div class="ml-step-detail">Risk heatmap · 30-day forecast</div>
+          </div>
+          <div class="ml-step">
+            <span class="ml-step-icon">🚨</span>
+            <div class="ml-step-name">Early Warning</div>
+            <div class="ml-step-detail">2-week detection improvement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div style="margin-top:2rem;text-align:center;">
+      <a href="Chris_Asianzu_Benjamin_Healthcare_CV.pdf" download class="btn-primary">📄 Download Healthcare CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- DATA SOURCES -->
+<section class="alt" style="background:var(--off);padding-top:0;">
+  <div class="container">
+    <div class="eyebrow">Data Sources</div>
+    <h2 class="sec-title">Multi-source data integration across 7 years</h2>
+    <p class="sec-sub">Three independent datasets unified into a single analytical model covering 45 districts and 180,000 weekly observations.</p>
+    <div class="data-grid">
+      <div class="data-card">
+        <span class="data-icon">🏥</span>
+        <div class="data-name">Disease Surveillance Reports</div>
+        <div class="data-desc">Weekly malaria and cholera case reports from district health offices across 45 districts. Standardized district identifiers and filled reporting gaps.</div>
+        <span class="data-tag">Primary Source</span>
+      </div>
+      <div class="data-card">
+        <span class="data-icon">🛰️</span>
+        <div class="data-name">NASA Climate Data</div>
+        <div class="data-desc">Rainfall and temperature datasets from NASA satellite sources. Created 4-week and 6-week lag variables linking rainfall patterns to later disease surges.</div>
+        <span class="data-tag">NASA · Climate API</span>
+      </div>
+      <div class="data-card">
+        <span class="data-icon">🌍</span>
+        <div class="data-name">World Bank Demographics</div>
+        <div class="data-desc">Population density, sanitation coverage, and poverty indicators per district. Combined with disease data to engineer composite risk scores.</div>
+        <span class="data-tag">World Bank Open Data</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARACHA HOSPITAL -->
+<section class="alt" id="maracha">
+  <div class="container">
+    <div class="eyebrow">Health Records System</div>
+    <h2 class="sec-title">St. Joseph's Hospital Maracha</h2>
+    <p class="sec-sub">Live system demonstration with the Muni Labs team — September 12, 2024.</p>
+    <div class="maracha-card">
+      <div class="maracha-top">
+        <div class="maracha-img">
+          <img src="hospital-building.jpg" alt="St. Joseph's Hospital Maracha" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="maracha-content">
+          <div class="maracha-badge">Live Deployment · Muni Labs · Uganda</div>
+          <h3 class="maracha-title">Digitizing patient records to improve healthcare delivery across Uganda.</h3>
+          <p class="maracha-desc">The Muni Labs team — led by Asiku Nasibu and supported by Yokoko Christine, Drileonzi Caeser, Chris Asianzu and the wider team — demonstrated an advanced health records digitization system at St. Joseph's Hospital Maracha on September 12, 2024.</p>
+          
+          <ul class="check-list">
+            <li>Digitized and analyzed patient record management replacing paper systems</li>
+            <li>Multi-user LAN access — all workstations connected to central server</li>
+            <li>Identified infrastructure requirements for full hospital-wide deployment</li>
+        
+          </ul>
+        </div>
+      </div>
+      <div class="maracha-bottom">
+        <div class="mb-item">
+          <span class="mb-icon">🖥️</span>
+          <div class="mb-label">System Architecture</div>
+          <div class="mb-detail">Central server + LAN workstations with real-time processing</div>
+        </div>
+        <div class="mb-item">
+          <span class="mb-icon">📋</span>
+          <div class="mb-label">Objectives Met</div>
+          <div class="mb-detail">Capabilities demonstrated · Compatibility tested · Staff trained</div>
+        </div>
+        <div class="mb-item">
+          <span class="mb-icon">🔄</span>
+          <div class="mb-label">Next Phase</div>
+          <div class="mb-detail">Full deployment pending hospital infrastructure upgrade</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section class="alt" id="teaching" style="background:var(--off);">
+  <div class="container">
+    <div class="eyebrow">Teaching</div>
+    <h2 class="sec-title">12-Week Data Analytics Bootcamp</h2>
+    <p class="sec-sub">Designed, built, and delivered five times through Muni Labs' Graduate Studies Academy — Uganda's training program tackling talent attrition and limited learning opportunities.</p>
+    <div class="teaching-grid">
+      <div class="teaching-card">
+        <div class="tc-number">5×</div>
+        <div class="tc-title">Cohorts Delivered</div>
+        <div class="tc-desc">The same curriculum, continuously refined across five cohorts. Each iteration improved based on student feedback and emerging industry needs.</div>
+      </div>
+      <div class="teaching-card">
+        <div class="tc-number">12</div>
+        <div class="tc-title">Weeks Per Cohort</div>
+        <div class="tc-desc">Intensive bootcamp covering Python, SQL, data visualization, statistical thinking, and real-world project work from week one.</div>
+      </div>
+      <div class="teaching-card">
+        <div class="tc-number">3</div>
+        <div class="tc-title">Sectors Represented</div>
+        <div class="tc-desc">Students come from agriculture, health, and education — working professionals and university students across Uganda, delivered primarily online.</div>
+      </div>
+    </div>
+    <div class="cohort-bar">
+      <div class="cohort-dots">
+        <div class="cohort-dot">C1</div>
+        <div class="cohort-dot">C2</div>
+        <div class="cohort-dot">C3</div>
+        <div class="cohort-dot">C4</div>
+        <div class="cohort-dot">C5</div>
+        <div class="cohort-dot inactive">C6</div>
+      </div>
+      <div class="cohort-text"><strong>5 cohorts completed.</strong> The GSA is a core Muni Labs program addressing limited training opportunities and poverty-related talent attrition — a preparatory immersion program for students from all walks of life interested in advanced data skills.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MUNI LABS -->
+<section class="muni-section">
+  <div class="muni-inner">
+    <div class="muni-text">
+      <div class="eyebrow">Organization</div>
+      <h2 class="sec-title">Muni Labs</h2>
+      <p>Muni Labs is a Uganda-based innovation organization working at the intersection of technology, healthcare, and education. I work with Muni Labs as a core team member — contributing to the Graduate Studies Academy bootcamp, the Maracha Hospital health records project, and data analytics capacity building across the region.</p>
+      <div class="muni-values">
+        <div class="mv">
+          <span class="mv-icon">📚</span>
+          <div>
+            <div class="mv-title">Graduate Studies Academy (GSA)</div>
+            <div class="mv-desc">Bootcamp program addressing limited training opportunities. Delivered 5 cohorts of data analytics training to Ugandan university students and professionals.</div>
+          </div>
+        </div>
+        <div class="mv">
+          <span class="mv-icon">🏥</span>
+          <div>
+            <div class="mv-title">Healthcare Technology</div>
+            <div class="mv-desc">Building and deploying health records digitization systems for rural Ugandan hospitals — bridging the gap between innovation and healthcare delivery.</div>
+          </div>
+        </div>
+        <div class="mv">
+          <span class="mv-icon">🌍</span>
+          <div>
+            <div class="mv-title">Regional Impact</div>
+            <div class="mv-desc">Committed to improving healthcare and education outcomes across Uganda through practical technology deployment and skills training.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="muni-img">
+      <img src="gsa-classroom.jpg" alt="GSA Data Analytics Bootcamp" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <h2>Looking for a data analyst with real-world healthcare experience?</h2>
+    <p>I bring commercial analytics depth and public health impact to every role. Available for remote positions worldwide — NGOs, health tech, and international organizations welcome.</p>
+    <div class="cta-btns">
+      <a href="mailto:b3ntana@gmail.com" class="btn-white">✉️ b3ntana@gmail.com</a>
+      <a href="index.html" class="btn-outline-white">← View Main Portfolio</a>
+    <a href="Chris_Asianzu_Benjamin_Healthcare_CV.pdf" download class="btn-outline-white">📄 Download Healthcare CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Chris <span>Asianzu</span> Benjamin</div>
+        <div class="footer-brand-desc">Data Analyst with healthcare data experience, machine learning capability, and a live deployment to his name. Based in Kampala, Uganda. Open to remote roles worldwide.</div>
+        <div class="footer-social">
+          <a href="https://github.com/chris-asianzu" target="_blank" class="fsoc">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/chris-asianzu-9b52a538b" target="_blank" class="fsoc">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:b3ntana@gmail.com" class="fsoc">✉</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Healthcare Work</h4>
+        <ul>
+          <li><a href="#ml">ML Outbreak Prediction</a></li>
+          <li><a href="#maracha">Maracha Hospital</a></li>
+          <li><a href="#teaching">Data Analytics Teaching</a></li>
+          <li><a href="#teaching">Muni Labs / GSA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Data Portfolio</h4>
+        <ul>
+          <li><a href="index.html#projects">E-commerce Intelligence</a></li>
+          <li><a href="index.html#projects">Retail Inventory</a></li>
+          <li><a href="index.html#projects">Marketing Campaign</a></li>
+          <li><a href="index.html#projects">SQL Repository</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:b3ntana@gmail.com">b3ntana@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/chris-asianzu-9b52a538b" target="_blank">LinkedIn</a></li>
+          <li><a href="https://github.com/chris-asianzu" target="_blank">GitHub</a></li>
+          <li><a href="index.html">Main Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 <a href="index.html">Chris Asianzu Benjamin</a> · Data Analyst · Kampala, Uganda</div>
+      <div class="footer-copy">Healthcare data · ML · Teaching · Remote-ready</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
