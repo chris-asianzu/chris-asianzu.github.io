@@ -84,7 +84,7 @@ section{padding:7rem 5%;}
 
 /* STATS BAR */
 .stats-bar{background:var(--navy);padding:5rem 5%;}
-.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;text-align:center;}
 .sv{font-family:'Playfair Display',serif;font-size:3rem;color:#fff;display:block;line-height:1;margin-bottom:0.5rem;}
 .sv span{color:#80CBC4;}
 .sl{font-size:0.82rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;}
@@ -255,6 +255,7 @@ footer{background:var(--navy);padding:5rem 5% 2rem;}
   <ul class="nav-links">
     <li><a href="index.html#projects">Data Portfolio</a></li>
     <li><a href="index.html#certs">Credentials</a></li>
+    <li><a href="#surveillance">Surveillance</a></li>
     <li><a href="#ml">ML Project</a></li>
     <li><a href="#maracha">Hospital Work</a></li>
     <li><a href="#teaching">Teaching</a></li>
@@ -314,6 +315,11 @@ footer{background:var(--navy);padding:5rem 5% 2rem;}
       <div class="icon-circle">🔒</div>
       <div><div class="icon-label">NDA Client Work</div><div class="icon-sub">Paid · Commissioned · Real</div></div>
     </div>
+    <div class="strip-div"></div>
+    <div class="icon-item">
+      <div class="icon-circle">📱</div>
+      <div><div class="icon-label">Mobile + Live Dashboard</div><div class="icon-sub">KoboCollect · Streamlit · folium</div></div>
+    </div>
   </div>
 </div>
 
@@ -336,8 +342,126 @@ footer{background:var(--navy);padding:5rem 5% 2rem;}
     <div style="text-align:center;"><span class="sv">45</span><span class="sl">Districts Covered</span></div>
     <div class="stat-div"></div>
     <div style="text-align:center;"><span class="sv">5<span>×</span></span><span class="sl">Bootcamp Cohorts Taught</span></div>
+    <div class="stat-div"></div>
+    <div style="text-align:center;"><span class="sv">1<span>K</span></span><span class="sl">Surveillance Records</span></div>
   </div>
 </div>
+
+<!-- SURVEILLANCE PROJECT -->
+<section class="alt" id="surveillance" style="background:var(--off);">
+  <div class="container">
+    <div class="eyebrow">Live Project</div>
+    <h2 class="sec-title">Community Fever &amp; Malaria Surveillance Initiative</h2>
+    <p class="sec-sub">End-to-end digital disease surveillance system built for rural Uganda. Mobile data collection → automated ETL → live interactive dashboard.</p>
+
+    <!-- Dashboard preview -->
+    <div style="border-radius:16px;overflow:hidden;margin:2.5rem 0;box-shadow:0 16px 48px rgba(0,137,123,0.15);border:1px solid var(--border);">
+      <div style="background:var(--navy);padding:0.75rem 1.25rem;display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-size:0.8rem;color:rgba(255,255,255,0.5);font-weight:600;">🟢 Live — community-fever-surveillance.streamlit.app</span>
+        <a href="https://community-fever-surveillance.streamlit.app/" target="_blank" style="background:var(--teal);color:#fff;font-size:0.75rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:4px;text-decoration:none;">Launch →</a>
+      </div>
+      <img src="surveillance-dashboard.jpg" alt="Community Fever Surveillance Dashboard" style="width:100%;display:block;">
+    </div>
+
+    <!-- Two column: description + metrics -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-bottom:3rem;">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:1rem;line-height:1.3;">From paper records to real-time district surveillance — in one pipeline.</h3>
+        <p style="font-size:0.92rem;color:var(--gray);line-height:1.9;margin-bottom:1rem;">Rural clinics and schools in Uganda rely on paper-based health reporting. This delays detection of fever and malaria clusters — meaning outbreaks grow before anyone notices. This project builds a complete digital alternative.</p>
+        <p style="font-size:0.92rem;color:var(--gray);line-height:1.9;margin-bottom:1.5rem;">Field workers report cases via KoboCollect mobile app. Data flows automatically through a Python ETL pipeline into a SQLite database. A live Streamlit dashboard shows trends, maps, and actionable insights in real time — filterable by district and week.</p>
+        <ul class="check-list">
+          <li>KoboCollect mobile form with GPS capture and validation rules</li>
+          <li>Python ETL pipeline — extract via Kobo API, clean, validate, load to SQLite</li>
+          <li>Interactive map with fever cluster heatmap using folium</li>
+          <li>Download buttons for filtered CSV and chart PNGs</li>
+          <li>Mosquito net usage vs malaria positivity analysis</li>
+        </ul>
+        <div style="display:flex;gap:1rem;margin-top:1.75rem;flex-wrap:wrap;">
+          <a href="https://community-fever-surveillance.streamlit.app/" target="_blank" class="btn-primary">🚀 Launch Live Dashboard</a>
+          <a href="https://github.com/chris-asianzu/community-fever-surveillance" target="_blank" class="btn-outline">⬡ View on GitHub</a>
+        </div>
+      </div>
+      <div>
+        <!-- Key findings -->
+        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;margin-bottom:1.25rem;">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">Key Findings</div>
+          <div style="display:flex;flex-direction:column;gap:0.85rem;">
+            <div style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.88rem;color:var(--gray);">
+              <span style="color:var(--teal);font-weight:900;flex-shrink:0;">🌧️</span>Fever cases spike 4–6 weeks after high rainfall periods across districts
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.88rem;color:var(--gray);">
+              <span style="color:var(--teal);font-weight:900;flex-shrink:0;">🦟</span>Low mosquito net usage correlates with significantly higher malaria positivity
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.88rem;color:var(--gray);">
+              <span style="color:var(--teal);font-weight:900;flex-shrink:0;">📍</span>Specific districts are consistent hotspots — visible on the heatmap
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.88rem;color:var(--gray);">
+              <span style="color:var(--teal);font-weight:900;flex-shrink:0;">📊</span>Dashboard enables coordinators to filter and act in real time
+            </div>
+          </div>
+        </div>
+        <!-- Tech stack -->
+        <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">Tech Stack</div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <span style="font-size:0.72rem;background:var(--teal2);color:var(--teal);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;">KoboCollect</span>
+            <span style="font-size:0.72rem;background:var(--teal2);color:var(--teal);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;">KoboToolbox API</span>
+            <span style="font-size:0.72rem;background:var(--teal2);color:var(--teal);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;">Python</span>
+            <span style="font-size:0.72rem;background:var(--teal2);color:var(--teal);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;">pandas</span>
+            <span style="font-size:0.72rem;background:var(--teal2);color:var(--teal);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;">SQLite</span>
+            <span style="font-size:0.72rem;background:var(--teal2);color:var(--teal);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;">Streamlit</span>
+            <span style="font-size:0.72rem;background:var(--teal2);color:var(--teal);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;">folium</span>
+            <span style="font-size:0.72rem;background:var(--teal2);color:var(--teal);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;">SQLAlchemy</span>
+            <span style="font-size:0.72rem;background:var(--teal2);color:var(--teal);padding:0.25rem 0.7rem;border-radius:4px;font-weight:600;">seaborn</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team + Mobile -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+      <!-- Team card -->
+      <div style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;">
+        <img src="surveillance-team.jpg" alt="Project Team" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;">
+        <div style="padding:1.5rem;">
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;">Project Team</div>
+          <div style="display:flex;gap:1rem;">
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.8rem;flex-shrink:0;">CA</div>
+              <div>
+                <div style="font-weight:700;color:var(--navy);font-size:0.88rem;">Chris Asianzu Benjamin</div>
+                <div style="font-size:0.75rem;color:var(--mid);">Data Engineering · Analytics · Dashboard</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;margin-top:0.75rem;">
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.8rem;flex-shrink:0;">AB</div>
+              <div>
+                <div style="font-weight:700;color:var(--navy);font-size:0.88rem;">Abiyo Bruce</div>
+                <div style="font-size:0.75rem;color:var(--mid);">Data Collection · Field Systems · KoboCollect</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile/KoboCollect card -->
+      <div style="background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;">
+        <img src="kobocollect-mobile.jpg" alt="KoboCollect Mobile App" style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;">
+        <div style="padding:1.5rem;">
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;">Mobile Data Collection</div>
+          <p style="font-size:0.85rem;color:var(--gray);line-height:1.7;">KoboCollect deployed on mobile — successfully collecting field data with GPS coordinates, validation rules, and offline capability. Connected to KoboToolbox server for automatic data sync.</p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.75rem;">
+            <span style="font-size:0.7rem;background:var(--off);border:1px solid var(--border);color:var(--gray);padding:0.2rem 0.6rem;border-radius:3px;font-weight:600;">GPS Capture</span>
+            <span style="font-size:0.7rem;background:var(--off);border:1px solid var(--border);color:var(--gray);padding:0.2rem 0.6rem;border-radius:3px;font-weight:600;">Offline Mode</span>
+            <span style="font-size:0.7rem;background:var(--off);border:1px solid var(--border);color:var(--gray);padding:0.2rem 0.6rem;border-radius:3px;font-weight:600;">Auto Sync</span>
+            <span style="font-size:0.7rem;background:var(--off);border:1px solid var(--border);color:var(--gray);padding:0.2rem 0.6rem;border-radius:3px;font-weight:600;">Validation Rules</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ML PROJECT -->
 <section class="alt" id="ml">
@@ -436,6 +560,7 @@ footer{background:var(--navy);padding:5rem 5% 2rem;}
   </div>
 </section>
 
+
 <!-- MARACHA HOSPITAL -->
 <section class="alt" id="maracha">
   <div class="container">
@@ -450,13 +575,12 @@ footer{background:var(--navy);padding:5rem 5% 2rem;}
         <div class="maracha-content">
           <div class="maracha-badge">Live Deployment · Muni Labs · Uganda</div>
           <h3 class="maracha-title">Digitizing patient records to improve healthcare delivery across Uganda.</h3>
-          <p class="maracha-desc">The Muni Labs team — led by Asiku Nasibu and supported by Yokoko Christine, Drileonzi Caeser, and the wider team — demonstrated an advanced health records digitization system at St. Joseph's Hospital Maracha on September 12, 2024.</p>
-          <p class="maracha-desc">The system replaces paper-based patient records with a centralized digital database, accessible across workstations via the hospital's Local Area Network. It enables real-time record retrieval, reduces documentation errors, and makes patient history instantly available at any workstation in the facility.</p>
+          <p class="maracha-desc">The Muni Labs team — led by Asiku Nasibu and supported by Chris Asianzu, Drileonzi Caeser, and the wider team — demonstrated an advanced health records digitization system at St. Joseph's Hospital Maracha on September 12, 2024.</p>
+          
           <ul class="check-list">
             <li>Digitized patient record management replacing paper systems</li>
             <li>Multi-user LAN access — all workstations connected to central server</li>
             <li>Identified infrastructure requirements for full hospital-wide deployment</li>
-            <li>Provided hardware upgrade recommendations for production rollout</li>
           </ul>
         </div>
       </div>
@@ -524,20 +648,20 @@ footer{background:var(--navy);padding:5rem 5% 2rem;}
     <div class="muni-text">
       <div class="eyebrow">Organization</div>
       <h2 class="sec-title">Muni Labs</h2>
-      <p>Muni Labs is a Uganda-based innovation organization working at the intersection of technology, healthcare, and education. I work with Muni Labs as a core team member — contributing to the Graduate Studies Academy bootcamp, the Maracha Hospital health records project, and data analytics capacity building across the region.</p>
+      <p>Muni Labs is a Uganda-based organization working at the intersection of technology, healthcare, and education. I work with Muni Labs contributing to the Graduate Studies Academy, the Maracha Hospital health records project, and data analytics capacity building.</p>
       <div class="muni-values">
         <div class="mv">
           <span class="mv-icon">📚</span>
           <div>
             <div class="mv-title">Graduate Studies Academy (GSA)</div>
-            <div class="mv-desc">Bootcamp program addressing limited training opportunities. Delivered 5 cohorts of data analytics training to Ugandan university students and professionals.</div>
+            <div class="mv-desc">Bootcamp program addressing limited training opportunities. Delivered 5 cohorts of data analytics training.</div>
           </div>
         </div>
         <div class="mv">
           <span class="mv-icon">🏥</span>
           <div>
             <div class="mv-title">Healthcare Technology</div>
-            <div class="mv-desc">Building and deploying health records digitization systems for rural Ugandan hospitals — bridging the gap between innovation and healthcare delivery.</div>
+            <div class="mv-desc">Building and deploying health records digitization systems for rural hospitals.</div>
           </div>
         </div>
         <div class="mv">
@@ -588,6 +712,7 @@ footer{background:var(--navy);padding:5rem 5% 2rem;}
       <div class="footer-col">
         <h4>Healthcare Work</h4>
         <ul>
+          <li><a href="#surveillance">Fever Surveillance Dashboard</a></li>
           <li><a href="#ml">ML Outbreak Prediction</a></li>
           <li><a href="#maracha">Maracha Hospital</a></li>
           <li><a href="#teaching">Data Analytics Teaching</a></li>
